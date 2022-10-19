@@ -1,10 +1,10 @@
-# HTML_to_XHTML_converter
+# HTML to XHTML converter
 
 This script was designed to convert HTML tags to XHTML tags for compliance with SDL Tridion software used by our internal customer. I've tried to search for existing solutions to the initial problem but none of those were compatible with initial conditions so I decided to write my own converter.
 
 ## Problem
 
-We use Smartcat (Cloud base CAT-tool) company-wide to perform translation tasks. Our internal customer asked us to translate multiple articles for our company's Knoledge Base website. Since the customer is using SDL Tridion software to publish articles, one of the requirements was to keep XHTML tags in translated files. However, the main problem here is that Smartcat ignores XHMTL tags when handling files, and generates resulting translations as HTML-compatible files, which causes errors when reuploading them back to SDL Tridion. Here are some exapmles:
+We use Smartcat (Cloud base CAT-tool) company-wide to perform translation tasks. Our internal customer asked us to translate multiple articles for our company's Knoledge Base website. Since the customer is using SDL Tridion software to publish articles, one of the requirements was to keep XHTML tags in translated files. However, the main problem here is that Smartcat ignores XHMTL tags when handling files, and generates resulting translations as HTML-compatible files only (all lowercase), which causes errors when reuploading them back to SDL Tridion. Here are some exapmles:
 >
     <Title>Premium Support</Title> → <title>Поддръжка Premium</title>
     <ImageAltText>Premium Support</ImageAltText>→ <imagealttext>Поддръжка Premium</imagealttext>
@@ -43,7 +43,7 @@ The script allows to achive the following results:
 
 ## 1. Clone the repository:
 
-    git clone
+    git clone https://github.com/DaniilGonoshilkin/HTML_to_XHTML_converter.git
 
 ## 2. Install dependencies: 
 
@@ -53,4 +53,4 @@ The script allows to achive the following results:
 
 Run the following command in Console
 
-      python placeholder.py
+      python html2xhtml.py `<PATH TO SOURCE FILES>` `<PATH TO TARGET FILES>` `<PATH TO PUT PROCESSED FILES>`
