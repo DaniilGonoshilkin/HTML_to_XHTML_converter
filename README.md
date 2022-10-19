@@ -1,4 +1,4 @@
-# HTML_to_XHTML_converter
+# HTML to XHTML converter
 
 This script was designed to convert HTML tags to XHTML tags for compliance with SDL Tridion software used by our internal customer. I've tried to search for existing solutions to the initial problem but none of those were compatible with initial conditions so I decided to write my own converter.
 
