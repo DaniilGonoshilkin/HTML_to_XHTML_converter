@@ -43,7 +43,7 @@ The script allows to achive the following results:
 
 ## 1. Clone the repository:
 
-    git clone
+    git clone https://github.com/DaniilGonoshilkin/HTML_to_XHTML_converter.git
 
 ## 2. Install dependencies: 
 
@@ -53,4 +53,4 @@ The script allows to achive the following results:
 
 Run the following command in Console
 
-      python placeholder.py
+      python html2xhtml.py `<PATH TO SOURCE FILES>` `<PATH TO TARGET FILES>` `<PATH TO PUT PROCESSED FILES>`
