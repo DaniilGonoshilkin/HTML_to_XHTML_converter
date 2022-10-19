@@ -4,7 +4,7 @@ This script was designed to convert HTML tags to XHTML tags for compliance with 
 
 ## Problem
 
-We use Smartcat (Cloud base CAT-tool) company-wide to perform translation tasks. Our internal customer asked us to translate multiple articles for our company's Knoledge Base website. Since the customer is using SDL Tridion software to publish articles, one of the requirements was to keep XHTML tags in translated files. However, the main problem here is that Smartcat ignores XHMTL tags when handling files, and generates resulting translations as HTML-compatible files, which causes errors when reuploading them back to SDL Tridion. Here are some exapmles:
+We use Smartcat (Cloud base CAT-tool) company-wide to perform translation tasks. Our internal customer asked us to translate multiple articles for our company's Knoledge Base website. Since the customer is using SDL Tridion software to publish articles, one of the requirements was to keep XHTML tags in translated files. However, the main problem here is that Smartcat ignores XHMTL tags when handling files, and generates resulting translations as HTML-compatible files only (all lowercase), which causes errors when reuploading them back to SDL Tridion. Here are some exapmles:
 >
     <Title>Premium Support</Title> → <title>Поддръжка Premium</title>
     <ImageAltText>Premium Support</ImageAltText>→ <imagealttext>Поддръжка Premium</imagealttext>
