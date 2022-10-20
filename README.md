@@ -1,10 +1,12 @@
 # HTML to XHTML converter
 
-This script was designed to convert HTML tags to XHTML tags for compliance with SDL Tridion software used by our internal customer. I've tried to search for existing solutions to the initial problem but none of those were compatible with initial conditions so I decided to write my own converter.
+This script is used to convert HTML tags to XHTML tags for compliance with SDL Tridion software used by our internal customer. I've tried to search for existing solutions to the initial problem but none of those were compatible with initial conditions so I decided to write my own converter.
+
+# General info
 
 ## Problem
 
-We use Smartcat (Cloud base CAT-tool) company-wide to perform translation tasks. Our internal customer asked us to translate multiple articles for our company's Knoledge Base website. Since the customer is using SDL Tridion software to publish articles, one of the requirements was to keep XHTML tags in translated files. However, the main problem here is that Smartcat ignores XHMTL tags when handling files, and generates resulting translations as HTML-compatible files only (all lowercase), which causes errors when reuploading them back to SDL Tridion. Here are some exapmles:
+We use Smartcat (Cloud base CAT tool) company-wide to perform translation tasks. Our internal customer asked us to translate multiple articles for our company's Knoledge Base website. Since the customer is using SDL Tridion software to publish articles, one of the requirements was to keep XHTML tags in translated files. However, the main problem here is that Smartcat ignores XHMTL tags when handling files, and generates resulting translations as HTML-compatible files only (all lowercase), which causes errors when reuploading them back to SDL Tridion. Here are some exapmles:
 >
     <Title>Premium Support</Title> → <title>Поддръжка Premium</title>
     <ImageAltText>Premium Support</ImageAltText>→ <imagealttext>Поддръжка Premium</imagealttext>
@@ -14,17 +16,22 @@ We use Smartcat (Cloud base CAT-tool) company-wide to perform translation tasks.
 
 The Smartcat support said, that there are no plans to add XHTML support in near future, so I decided to design a script that 'restores' XHTML tags in translated files. The script uses Beautiful Soup package.
 
-# General info
-
 ## File types
 
-This script works with .html files only. If your .html file has XHTML-compatible tags and your CAT-tool converts it to HTML-only, this script might help you to convert your translations back to XHTML-compatible files.
+This script works with .html files only. If your .html file has XHTML-compatible tags and your CAT tool converts it to HTML-only (lowercase), this script might help you to convert your translations back to XHTML-compatible files.
 
 ## File specifications
 
 In order for the script to work, you should have:
 * source files (with XHTML tags, before translation)
-* target files (generated from CAT-tool with HTML-only tags)
+* target files (generated from CAT tool with HTML-only tags), target files should have the same name as source with language code allowed in brackets, example:
+>
+    .../sourcefolder
+        article12345.html
+    .../targetfolder
+        article12345(pt-BR).html
+        article12345(fr-FR).html
+        article12345(zh-CN).html
 
 ## How the script works
 
@@ -54,3 +61,8 @@ The script allows to achive the following results:
 Run the following command in Console
 
       python html2xhtml.py `<PATH TO SOURCE FILES>` `<PATH TO TARGET FILES>` `<PATH TO PUT PROCESSED FILES>`
+
+where:
+* `<PATH TO SOURCE FILES>` - folder with source files (before translation, with correct XHTML tags)
+* `<PATH TO TARGET FOLDER>` - folder with target translations (generated after Smartcat, HTML tags only), folder can contain translations to multiple languages
+* `<PATH TO PUT PROCESSED FILES>` - folder, where the script should put the processed files (target translations with XHTML restored)
